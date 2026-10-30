@@ -53,6 +53,8 @@ env:
   #signing keys env variable checks
   ANDROID_SIGNING_KEY: "${{ secrets.ANDROID_SIGNING_KEY }}"
   MACOS_P12_BASE64: "${{ secrets.MACOS_P12_BASE64 }}"
+  RENDEZVOUS_SERVER: "remotesupport.habitat3.net.au"
+  RS_PUB_KEY: "wbJo8dgEpK+YY8ER29xGf+YfV8wBqvG48D03Vyn1KL4="
   UPLOAD_ARTIFACT: "${{ inputs.upload-artifact }}"
   PUBLISH_UPDATE_METADATA: "${{ inputs.publish-update-metadata }}"
   SIGN_BASE_URL: "${{ secrets.SIGN_BASE_URL }}-2"
