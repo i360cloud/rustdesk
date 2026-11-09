@@ -2166,7 +2166,13 @@ pub fn get_license_from_exe_name() -> ResultType<CustomServer> {
     if let Ok(portable_exe) = std::env::var(PORTABLE_APPNAME_RUNTIME_ENV_KEY) {
         exe = portable_exe;
     }
-    get_custom_server_from_string(&exe)
+    get_custom_server_from_string(&exe).or_else(|_| {
+        Ok(CustomServer {
+            host: "remotesupport.habitat3.net.au".to_owned(),
+            key: "wbJo8dgEpK+YY8ER29xGf+YfV8wBqvG48D03Vyn1KL4=".to_owned(),
+            ..Default::default()
+        })
+    })
 }
 
 // We can't directly use `RegKey::set_value` to update the registry value, because it will fail with `ERROR_ACCESS_DENIED`
